@@ -15,16 +15,38 @@ android {
 		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 	}
 
-	buildTypes {
-		release {
-			minifyEnabled false
-			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-		}
-	}
+	buildTypes {}
 	compileOptions {
 		sourceCompatibility JavaVersion.VERSION_1_8
 		targetCompatibility JavaVersion.VERSION_1_8
 	}
+	flavorDimensions "version"
+	productFlavors {
+		terrariaPaid {
+			dimension "version"
+			applicationId "com.and.games505.TerrariaPaid"
+			versionCode 300543
+			versionName "1.4.0.5.2.1"
+			// https://play.google.com/store/apps/details?id=com.and.games505.TerrariaPaid
+		}
+
+		terrariaTrial {
+			dimension "version"
+			applicationId "com.and.games505.Terraria"
+			versionCode 300543
+			versionName "1.4.0.5.2.1"
+			// https://play.google.com/store/apps/details?id=com.and.games505.Terraria
+		}
+
+		terrariaAmazon {
+			dimension "version"
+			applicationId "com.amz.games505.Terraria"
+			versionCode 300542
+			versionName "1.4.0.5.2"
+			// https://www.amazon.com/505-Games-Terraria/dp/B00G6ZTM3Y
+		}
+	}
+
 }
 
 dependencies {

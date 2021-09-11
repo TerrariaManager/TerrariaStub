@@ -2,8 +2,12 @@ package com.jbro129.terrariastub;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.File;
@@ -15,7 +19,11 @@ public class MainActivity extends AppCompatActivity {
 	
 	private static final String statusText = "Terraria Environment Status: ";
 	private static final String TAG = "JbroLog";
+	private File externalFilesDir;
 	private TextView status;
+	private TextView info;
+	private Button wipe;
+	private Button recreate;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +31,32 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 		
 		status = findViewById(R.id.envstatus);
+		info = findViewById(R.id.info);
+		wipe = findViewById(R.id.wipe);
+		recreate = findViewById(R.id.recreate);
+		
+		wipe.setOnClickListener(v -> {
+			Log.d(TAG, "Wiping environment");
+			wipe();
+		});
+		recreate.setOnClickListener(v -> {
+			Log.d(TAG, "ReCreating environment");
+			wipe();
+			initEnvironment();
+		});
+		
+		externalFilesDir = this.getExternalFilesDir(null).getParentFile();
+		
+		info.setText("Env Info: " + BuildConfig.APPLICATION_ID + " " + BuildConfig.VERSION_NAME + " " + BuildConfig.VERSION_CODE);
 		
 		initEnvironment();
+	}
+	
+	private void wipe()
+	{
+		Log.d(TAG, "Data path to wipe: " + externalFilesDir.getAbsolutePath());
 		
+		deleteDir(externalFilesDir);
 	}
 	
 	private void initEnvironment()
@@ -33,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
 		boolean anyerrors = false;
 		
 		status.setText(statusText + "Preparing...");
-		
-		File externalFilesDir = this.getExternalFilesDir(null).getParentFile();
 		
 		Log.d(TAG, "external files dir: " + externalFilesDir.getAbsolutePath());
 		
@@ -143,5 +172,18 @@ public class MainActivity extends AppCompatActivity {
 		finally {
 			return path.exists();
 		}
+	}
+	
+	public static boolean deleteDir(File dir) {
+		if (dir.isDirectory()) {
+			String[] children = dir.list();
+			for (int i = 0; i < children.length; i++) {
+				boolean success = deleteDir(new File(dir, children[i]));
+				if (!success) {
+					return false;
+				}
+			}
+		}
+		return dir.delete();
 	}
 }

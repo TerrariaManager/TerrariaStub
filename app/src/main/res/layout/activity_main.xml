@@ -4,7 +4,21 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context=".MainActivity">
+	tools:context="com.jbro129.terrariastub..MainActivity">
+
+
+	<TextView
+		android:id="@+id/info"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Env Info: "
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintRight_toRightOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0.432" />
 
 	<TextView
 		android:id="@+id/envstatus"
@@ -12,8 +26,42 @@
 		android:layout_height="wrap_content"
 		android:text="Terraria Environment Status: "
 		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintLeft_toLeftOf="parent"
 		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintTop_toTopOf="parent" />
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/info"
+		app:layout_constraintVertical_bias="0.044" />
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:orientation="horizontal"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/envstatus"
+		app:layout_constraintVertical_bias="0.044">
+
+		<Button
+			android:id="@+id/wipe"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="15dp"
+			android:textAllCaps="false"
+			android:text="Wipe"
+			style="@style/TextAppearance.AppCompat.Widget.Button.Colored" />
+
+		<Button
+			android:id="@+id/recreate"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="ReCreate"
+			android:textAllCaps="false"
+			style="@style/TextAppearance.AppCompat.Widget.Button.Colored" />
+
+	</LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
