@@ -2,11 +2,8 @@ package com.jbro129.terrariastub;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -46,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 		});
 		
 		externalFilesDir = this.getExternalFilesDir(null).getParentFile();
+		Log.d(TAG, "external files dir: " + externalFilesDir.getAbsolutePath());
 		
 		info.setText("Env Info: " + BuildConfig.APPLICATION_ID + " " + BuildConfig.VERSION_NAME + " " + BuildConfig.VERSION_CODE);
 		
@@ -65,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
 		
 		status.setText(statusText + "Preparing...");
 		
-		Log.d(TAG, "external files dir: " + externalFilesDir.getAbsolutePath());
-		
 		File controllerProfilesDir = new File(externalFilesDir.getAbsolutePath() + "/ControllerProfiles");
 		File filesDir = new File(externalFilesDir.getAbsolutePath() + "/files");
 		File oldSavesDir = new File(externalFilesDir.getAbsolutePath() + "/OldSaves");
@@ -81,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
 		File virtualControlsFile = new File(externalFilesDir.getAbsolutePath() + "/VirtualControls.json");
 		File dummyWorldFile = new File(externalFilesDir.getAbsolutePath() + "/Worlds/dummy.wld");
 		File dummyPlayerFile = new File(externalFilesDir.getAbsolutePath() + "/Players/dummy.plr");
-		
 		
 		ArrayList<File> folders = new ArrayList<>();
 		ArrayList<File> files = new ArrayList<>();
