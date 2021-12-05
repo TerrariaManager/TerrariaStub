@@ -34,6 +34,7 @@
 		app:layout_constraintVertical_bias="0.044" />
 
 	<LinearLayout
+		android:id="@+id/linearLayout"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_gravity="center"
@@ -46,22 +47,34 @@
 
 		<Button
 			android:id="@+id/wipe"
+			style="@style/TextAppearance.AppCompat.Widget.Button.Colored"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginEnd="15dp"
-			android:textAllCaps="false"
 			android:text="Wipe"
-			style="@style/TextAppearance.AppCompat.Widget.Button.Colored" />
+			android:textAllCaps="false" />
 
 		<Button
 			android:id="@+id/recreate"
+			style="@style/TextAppearance.AppCompat.Widget.Button.Colored"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="ReCreate"
-			android:textAllCaps="false"
-			style="@style/TextAppearance.AppCompat.Widget.Button.Colored" />
+			android:textAllCaps="false" />
 
 	</LinearLayout>
+
+	<Button
+		android:id="@+id/importFile"
+		style="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="28dp"
+		android:text="Import World/Player"
+		android:textAllCaps="false"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
