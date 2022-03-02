@@ -3,27 +3,26 @@ plugins {
 }
 
 android {
-	compileSdk 30
+	compileSdk 31
 
 	defaultConfig {
 		applicationId "com.and.games505.TerrariaPaid"
 		minSdk 21
-		targetSdk 30
-		versionCode 2
-		versionName "1.1"
+		targetSdk 31
+		versionCode 3
+		versionName "1.2"
 
 		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+		flavorDimensions "terrariaPaid"
 	}
 
-	buildTypes {}
 	compileOptions {
 		sourceCompatibility JavaVersion.VERSION_1_8
 		targetCompatibility JavaVersion.VERSION_1_8
 	}
-	flavorDimensions "version"
 	productFlavors {
 		terrariaPaid {
-			dimension "version"
 			applicationId "com.and.games505.TerrariaPaid"
 			versionCode 300543
 			versionName "1.4.0.5.2.1"
@@ -31,7 +30,6 @@ android {
 		}
 
 		terrariaTrial {
-			dimension "version"
 			applicationId "com.and.games505.Terraria"
 			versionCode 300543
 			versionName "1.4.0.5.2.1"
@@ -39,7 +37,6 @@ android {
 		}
 
 		terrariaAmazon {
-			dimension "version"
 			applicationId "com.amz.games505.Terraria"
 			versionCode 300542
 			versionName "1.4.0.5.2"
@@ -51,10 +48,10 @@ android {
 
 dependencies {
 
-	implementation 'androidx.appcompat:appcompat:1.3.1'
-	implementation 'com.google.android.material:material:1.4.0'
-	implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
-	testImplementation 'junit:junit:4.+'
+	implementation 'androidx.appcompat:appcompat:1.4.1'
+	implementation 'com.google.android.material:material:1.5.0'
+	implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+	testImplementation 'junit:junit:'
 	androidTestImplementation 'androidx.test.ext:junit:1.1.3'
 	androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
